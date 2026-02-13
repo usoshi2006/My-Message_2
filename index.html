@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Mr. Letru 💖</title>
+
+  <!-- Elegant Font Mix -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&family=Allura&family=Libre+Baskerville:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #2b1055, #7597de);
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    /* MAIN TEXT */
+    h1 {
+      margin-top: 95px;
+      font-size: 36px;
+      font-family: 'Playfair Display', serif;
+      color: #f9f5ff;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin: 10px 0;
+      color: #efe9ff;
+    }
+
+    h3 {
+      font-size: 16px;
+      color: #e6dcff;
+    }
+
+    button {
+      padding: 12px 32px;
+      font-size: 17px;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      margin: 15px;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.5px;
+      z-index: 10;
+    }
+
+    #yes {
+      background: linear-gradient(135deg, #ffffff, #f5e6ff);
+      color: #8b2fc9;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+      animation: pulse 1.5s infinite;
+    }
+
+    #no {
+      background: linear-gradient(135deg, #ff6fa5, #ff4f8b);
+      color: white;
+      position: absolute;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+
+    /* Floating Hearts */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 24px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    /* LOVE CARD */
+    .card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      border-radius: 30px;
+      padding: 38px;
+      margin: 110px auto;
+      width: 82%;
+      max-width: 500px;
+      box-shadow: 0 35px 70px rgba(0,0,0,0.35);
+      animation: pop 0.6s ease;
+      color: #2c1a3d;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.6); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* FONT ROTATION EVERY 2 LINES */
+    .line1 { font-family: 'Playfair Display', serif; color: #2b124c; }
+    .line2 { font-family: 'Montserrat', sans-serif; color: #3b2a5a; }
+    .line3 { font-family: 'Libre Baskerville', serif; color: #4a2f6f; }
+    .line4 { font-family: 'Montserrat', sans-serif; color: #5a3a80; }
+    .line5 { font-family: 'Playfair Display', serif; color: #3b1f66; }
+    .line6 { font-family: 'Libre Baskerville', serif; color: #4d2a75; }
+
+    .love-text {
+      font-family: 'Allura', cursive;
+      font-size: 26px;
+      color: #7a2dbf;
+      margin-top: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Hey Mr. Soumyadeep 🤍</h1>
+  <h2>Will you be my Valentine?</h2>
+
+  <button id="yes" onclick="yesClicked()">Yes 💖</button>
+  <button id="no" onmouseover="moveNo()">No 🙃</button>
+
+  <audio id="bgMusic">
+    <source src="Songs\\song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function moveNo() {
+      let x = Math.random() * (window.innerWidth - 120);
+      let y = Math.random() * (window.innerHeight - 60);
+      const noBtn = document.getElementById("no");
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    function playPerfectPart() {
+      const music = document.getElementById("bgMusic");
+      music.currentTime = 47;
+      music.volume = 0.6;
+      music.play();
+      setTimeout(() => music.pause(), 35000);
+    }
+
+    function yesClicked() {
+      playPerfectPart();
+
+      document.body.innerHTML = `
+        <div class="card">
+          <h1 class="line1">YAY!! 💕</h1>
+          <h2 class="line2">Do you know you’re my letru? 🥺💘</h2>
+          <h2 class="line2">But but buttt… waittt 😌</h2>
+          <h2 class="line3">Okayyy so this one isn’t a surprise anymore…</h2>
+          <h2 class="line3">but I still have something special for you 🤍✨</h2>
+          <h2 class="line4">First things first—ice cream in the morning, okay? 🍦👀</h2>
+          <h2 class="line4">After that… I’ll show youuuu 🫶💕❤️</h2>
+          <div class="love-text">Alabewww a lottt... 🙃💖</div>
+        </div>
+      `;
+
+      for (let i = 0; i < 30; i++) {
+        setTimeout(createFirework, i * 120);
+      }
+    }
+
+    function createFirework() {
+      const firework = document.createElement("div");
+      firework.className = "firework";
+      firework.style.left = Math.random() * 100 + "vw";
+      firework.style.top = Math.random() * 100 + "vh";
+      firework.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+      document.body.appendChild(firework);
+      setTimeout(() => firework.remove(), 1000);
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      const emojis = ["💖", "💕", "💗", "✨", "💞"];
+      heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+
+    setInterval(createHeart, 350);
+  </script>
+
+</body>
+</html>
